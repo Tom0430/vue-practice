@@ -9,7 +9,26 @@
 </head>
 <body>
     <div id="app">
-        <p>{{message}}</p>
+        <p>{{count}}</p>
+        <input v-model.number="count">
+        <ol>
+            <li v-for="item in list">{{ item }} </li>
+        </ol>
+        <button v-on:click="handleClick">Click</button>
+        <button v-on:click="show=!show">切り替え</button>
+
+        <transition>
+            <p v-if="show">Hello Vue.js</p>
+        </transition>
+        <!-- console.log(app.show = false)と入力すると消える app.data.show じゃないことに注意 -->
+        <p>{{ count }}回クリックしたよ！</p>
+        <button v-on:click="increment">カウントを増やす</button>
+
+        <p v-bind:class="{ child: isChild, 'is-active': isActive }">Text</p>
+        <!-- クラス名でスタイルのハイフンを囲む時は''が必要 -->
+        <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">テキスト</p>
+
+        <p v-bind:style="styleObject">オブジェクトで指定</p>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
