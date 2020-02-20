@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ count }}回クリックしたよ</p>
+        <button v-on:click="increment">１増やす</button>
+        <p v-bind="item">こんにちは</p>
+
+        <div v-if="type === 'A'">
+            <p>Aタイプ</p>
+        </div>
+        <div v-else-if="type === 'B'">
+            <p>Bタイプ</p>
+        </div>
+        <div v-else="type === 'C'">
+            <p>Cタイプ</p>
+        </div>
+        <button v-on:click="typeChange">タイプを変更</button>
+
+        <!-- <ul>
+            <li v-for="item in list"
+              v-bind:key="item.id"
+              v-bind:class="{ tuyoi: item.hp > 300 }">　
+              ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+              <span v-if="item.hp > 300">つよい！</span>
+            </li>
+        </ul> -->
+        <!-- 指定の条件をもつ要素だけclassを追加している
+        リストを更新するとき、要素の識別と効率的な描画処理をさせるためにユニークなkeyを指定すること推奨 -->
+
+        <!-- <ul>
+            <li v-for="item in list"
+              v-bind:key="item.id"
+              v-if="item.hp < 300" >
+              ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+            </li>
+        </ul>
+        <input type=""> -->
+        <!-- 要素に直接指定v-ifを指定することで要素自体の描画を操作 -->
+
+          <!-- <input v-model="name">
+          <button v-on:click="doAdd">モンスターを追加</button>
+          <ul>
+            <li v-for="(item, index) in list" v-bind:key="item.id">
+              ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+              <button v-on:click="doRemove(index)">モンスターを削除</button>
+            </li>
+        </ul> -->
+        <!-- 引数にindexもに追加しておいて、これを使って削除メソッドを作る -->
+
+          <ul>
+            <li v-for="(item, index) in list" v-bind:key="item.id" v-if="item.hp">
+              ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+              <span v-if="item.hp < 50">瀕死！</span>
+              <!-- ボタンはv-for内に作成 -->
+              <button v-on:click="doAttack(index)">攻撃する</button>
+            </li>
+          </ul>
+          <!-- v-if="item.hp"を追加することによってhpが０になると消える  -->
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<script src="main2.js"></script>
+</html>
