@@ -39,24 +39,3 @@ var app = new Vue({
         window.removeEventListener('scroll',this.handleScroll)
     },
 })
-
-
-// scrollYのプロパティを使ってサイドバーを固定したり、
-// ある程度スクロールしたらヘッダー縮小などの処理をするなど
-// 動的なスタイルを適用することができる
-
-
-// スクロールトップ
-// html側
-//     < script src = "https://cdn.jsdeliver.net/npm/smooth-scroll@12.1.5" ></script >
-
-//     <div v-on:click="scrollTop">
-//         ページ上部に移動
-//     </div>
-
-// Vue側
-//      var scroll = new SmoothScroll()
-
-//      scrollTop: function () {
-//          scroll.animateScroll(0)
-//       }

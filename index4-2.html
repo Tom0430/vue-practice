@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <select v-model="current">
+          <option v-for="topic in topics" v-bind:value="topic.value">
+            {{ topic.name }}
+          </option>
+        </select>
+        <div v-for="item in list">{{ item.full_name }}</div>
+
+        <p>{{ price | localeNum }}円</p>
+        <p>180 度は {{ 180 | radian | round }} ラジアンだよ</p>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script src="main4-2.js"></script>
+</html>
